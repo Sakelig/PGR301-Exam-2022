@@ -51,13 +51,13 @@ For at ingen kan pushe direkte til må man velge hvilken branch regelen skal
 fungere på. Som i vårt case er "main".
 Da under "Protect matching branches" hukker man av på 
 - [x] Require a pull request before merging
-</br>
+
 Slik at en ikke kan pushe direkte til main men kun med en Pull request.
 - [x] Require approvals
-</br>
+
 Slik at kode kan Merges til main ved å lage en Pull request med minst en godkjenning
 - [x] Require status check to pass before merging
-</br>
+
 Slik at kode some merges til main blir verifisert av Github Actions ved å kjøre workflow actions valgt og sjekke om disse passere 
  
 [insert bilde av settings side med branches valgt og sånt]
