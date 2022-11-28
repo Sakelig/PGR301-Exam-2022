@@ -1,18 +1,31 @@
 package no.shoppifly;
 
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.Gauge;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationListener;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController()
-public class ShoppingCartController {
+public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
+
+    private Map<String, Float> cartSum = new HashMap();
 
     @Autowired
     private final CartService cartService;
 
-    public ShoppingCartController(CartService cartService) {
+    private MeterRegistry meterRegistry;
+
+    @Autowired
+    public ShoppingCartController(CartService cartService, MeterRegistry meterRegistry){
         this.cartService = cartService;
+        this.meterRegistry = meterRegistry;
     }
 
     @GetMapping(path = "/cart/{id}")
@@ -25,9 +38,14 @@ public class ShoppingCartController {
      *
      * @return an order ID
      */
+    @Timed
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
-        return cartService.checkout(cart);
+        meterRegistry.counter("checkouts").increment();
+        String cartId = cart.getId();
+        cartService.checkout(cart);
+        cartSum.remove(cartId);
+        return cartId;
     }
 
     /**
@@ -38,6 +56,21 @@ public class ShoppingCartController {
      */
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
+
+        // remove cart from cartSum if it exists
+        if (cartSum.containsKey(cart.getId())) {
+            cartSum.remove(cart.getId());
+        }
+
+        // add cart to cartSum
+        cart.getItems().forEach(item -> {
+            if (cartSum.containsKey(cart.getId())) {
+                cartSum.put(cart.getId(), cartSum.get(cart.getId()) + item.getUnitPrice());
+            } else {
+                cartSum.put(cart.getId(), item.getUnitPrice());
+            }
+        });
+
         return cartService.update(cart);
     }
 
@@ -52,4 +85,18 @@ public class ShoppingCartController {
     }
 
 
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
+        // Verdi av antall carts
+        Gauge.builder("carts", cartSum,
+                b -> b.values().size()).register(meterRegistry);
+
+        // Denne meter-typen "Gauge" rapporterer hvor mye penger som totalt
+        // finnes i cartsene xp
+        Gauge.builder("cartvalue", cartSum,
+                        b -> b.values().stream()
+                                .mapToDouble(Float::doubleValue)
+                                .sum())
+                .register(meterRegistry);
+    }
 }
