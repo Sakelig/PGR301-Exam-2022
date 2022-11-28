@@ -18,6 +18,7 @@ Teamet overleverer kode til en annen avdeling som har ansvar for drift - hva er 
 - asdfas
 
 
+
 ## Del 2 - CI
 
 ### Oppgave 1 
@@ -64,11 +65,19 @@ Slik at kode some merges til main blir verifisert av Github Actions ved å kjør
 
 
 
-##Del 3 - Docker
+## Del 3 - Docker
+
+### OBS! Oppgave 1
+For å få workflowen til å fungere med DockerHub kontoen min må jeg legge til 
+secrets i repoet i Github, da workflown spesifikt ser etter en sercet som 
+heter "DOCKER_HUB_USERNAME" og "DOCKER_HUB_TOKEN".
+Den failer og får "Error: Username and password required" da den ikke 
+har en username og passord å skrive inn.
+
+[insert bilde av Settings > secrets > actions side]
+
+## Del 4 - Metrics, overvåkning og alarmer
 
 
-##Del 4 - Metrics, overvåkning og alarmer
-
-
-##Del 5 - Terraform og CloudWatch Dashboards
+## Del 5 - Terraform og CloudWatch Dashboards
 
