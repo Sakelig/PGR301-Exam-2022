@@ -112,8 +112,17 @@ link til commit: [f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46
 
 ## Oppgave 3
 For at sensor skal få sin fork  til å laste opp container image til sitt 
-eget ECR repo må, så må man sette opp to nye Github Repository secrets. En 
-kalt "AWS_ACCESS_KEY_ID" og en anne kalt "AWS_SECRET_ACCESS_KEY". 
+eget ECR repo må det først bli laget et privat ECR repository i AWS, så må man 
+sette opp to nye Github Repository secrets.
+
+ECR repository:
+I AWS miljøet søk "Elastic Container Registry" i søke feltet på toppen og 
+trykk på den. Deretter trykk "Create repository" > sjekk at settings er satt 
+til Private og skriv inn navn på repository. Tilslutt scroll ned og trykk 
+"Create repository".
+
+Github Repository secrets:
+En kalt "AWS_ACCESS_KEY_ID" og en anne kalt "AWS_SECRET_ACCESS_KEY". 
 Disse kan man finne i sitt aws miljø ved å trykke Øverst til høyre der brukernavnet 
 står > "Security Credentials" > under "Access keys for CLI, SDK, & API 
 access" trykk "Create access key" 
