@@ -20,6 +20,17 @@ Teamet overleverer kode til en annen avdeling som har ansvar for drift - hva er 
 
 # Del 2 - CI
 
+### Oppgave 1 
+CI workflowen kjører nå etter å ha lagt til dette i ci.yml filen:
+```
+on:
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+```
+
+
 
 #Del 3 - Docker
 
