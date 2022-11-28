@@ -1,6 +1,6 @@
 # PGR301 Eksamen stkl002
 
-# Del 1 - DevOps-prinsipper
+## Del 1 - DevOps-prinsipper
 Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
 - asdf
 - asdf
@@ -18,7 +18,7 @@ Teamet overleverer kode til en annen avdeling som har ansvar for drift - hva er 
 - asdfas
 
 
-# Del 2 - CI
+## Del 2 - CI
 
 ### Oppgave 1 
 CI workflowen kjører nå etter å ha lagt til dette i ci.yml filen:
@@ -30,13 +30,21 @@ on:
         branches: [ main ]
 ```
 
+### Oppgave 2 ** TESTING NEEDED IN THE END **
+CI workflowen kjører nå på hver eneste push, uavhengig av branch **TEST THIS WITH DUMMY USER**
+etter å ha fått "Build with Maven" jobben til å kjøre med dette:
+```
+ - name: Build with Maven
+        run: mvn -B package --file pom.xml
+```
+Så istedenfor å bare compilere, vil den nå kjøre testene før den blir pakke.
 
 
-#Del 3 - Docker
+##Del 3 - Docker
 
 
-#Del 4 - Metrics, overvåkning og alarmer
+##Del 4 - Metrics, overvåkning og alarmer
 
 
-#Del 5 - Terraform og CloudWatch Dashboards
+##Del 5 - Terraform og CloudWatch Dashboards
 
