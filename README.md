@@ -41,6 +41,7 @@ etter å ha fått "Build with Maven" jobben til å kjøre med dette:
 ```
 Så istedenfor å bare compilere, vil den nå kjøre testene før den blir pakke.
 
+ref: ![f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46277b90a8e2976e1511b01fcda18a12a7786aa)
 
 ### OBS! Oppgave 3 ** LEGG TIL TERRAFORM OG TA BILDE NÅR DET ER GJORT **
 Sensor må gå inn i settings i repoet:
@@ -75,6 +76,39 @@ Den failer og får "Error: Username and password required" da den ikke
 har en username og passord å skrive inn.
 
 [insert bilde av Settings > secrets > actions side]
+
+### Oppgave 2
+Satt på en Builder på Dockerfilen med 
+```
+FROM maven:3.6-jdk-11 as builder
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn package
+```
+og fikset java versionen til å kunne kjøre class file version 55 (java11) og 
+bruker builderen
+```
+FROM adoptopenjdk/openjdk11:alpine-slim
+COPY --from=builder /app/target/*.jar  /app/application.jar
+ENTRYPOINT ["java","-jar","/app/application.jar"]
+```
+
+Fjernet også steget i docker.yml filen som packet filen og skippet alle 
+testene..
+
+```
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+          cache: maven
+
+      - name: Build with Maven
+        # Jim; Just skipping test for now
+        run: mvn --no-transfer-progress -B package -DskipTests --file pom.xml
+```
 
 ## Del 4 - Metrics, overvåkning og alarmer
 
