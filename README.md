@@ -41,8 +41,6 @@ etter å ha fått "Build with Maven" jobben til å kjøre med dette:
 ```
 Så istedenfor å bare compilere, vil den nå kjøre testene før den blir pakke.
 
-ref: ![f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46277b90a8e2976e1511b01fcda18a12a7786aa)
-
 ### OBS! Oppgave 3 ** LEGG TIL TERRAFORM OG TA BILDE NÅR DET ER GJORT **
 Sensor må gå inn i settings i repoet:
 [insert bilde av første side man kommer til]
@@ -109,6 +107,8 @@ testene..
         # Jim; Just skipping test for now
         run: mvn --no-transfer-progress -B package -DskipTests --file pom.xml
 ```
+ref: [f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46277b90a8e2976e1511b01fcda18a12a7786aa)
+
 
 ## Del 4 - Metrics, overvåkning og alarmer
 
