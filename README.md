@@ -110,7 +110,7 @@ testene..
 link til commit: [f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46277b90a8e2976e1511b01fcda18a12a7786aa)
 
 
-## Oppgave 3
+### Oppgave 3
 For at sensor skal få sin fork  til å laste opp container image til sitt 
 eget ECR repo må det først bli laget et privat ECR repository i AWS, så må man 
 sette opp tre nye Github Repository secrets.
