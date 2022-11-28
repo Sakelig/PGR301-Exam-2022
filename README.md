@@ -107,7 +107,7 @@ testene..
         # Jim; Just skipping test for now
         run: mvn --no-transfer-progress -B package -DskipTests --file pom.xml
 ```
-ref: [f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46277b90a8e2976e1511b01fcda18a12a7786aa)
+link til commit: [f46277](https://github.com/Sakelig/PGR301-Exam-2022/commit/f46277b90a8e2976e1511b01fcda18a12a7786aa)
 
 
 ## Del 4 - Metrics, overvåkning og alarmer
