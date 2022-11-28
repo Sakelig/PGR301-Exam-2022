@@ -30,6 +30,7 @@ on:
         branches: [ main ]
 ```
 
+
 ### Oppgave 2 ** TESTING NEEDED IN THE END **
 CI workflowen kjører nå på hver eneste push, uavhengig av branch **TEST THIS WITH DUMMY USER**
 etter å ha fått "Build with Maven" jobben til å kjøre med dette:
@@ -38,6 +39,26 @@ etter å ha fått "Build with Maven" jobben til å kjøre med dette:
         run: mvn -B package --file pom.xml
 ```
 Så istedenfor å bare compilere, vil den nå kjøre testene før den blir pakke.
+
+
+### Oppgave 3
+Sensor må gå inn i settings i repoet:
+[insert bilde av første side man kommer til]
+Her må man trykke på "Add rule" for å legge til en regel i branchen slik at 
+en f.eks. ikke kan pushe direkte til main.
+
+For at ingen kan pushe direkte til må man velge hvilken branch regelen skal 
+fungere på. Som i vårt case er "main".
+Da under "Protect matching branches" hukker man av på 
+- [x] Require a pull request before merging
+Slik at en ikke kan pushe direkte til main men kun med en Pull request.
+- [x] Require approvals
+Slik at kode kan Merges til main ved å lage en Pull request med minst en godkjenning
+- [x] Require status check to pass before merging
+Slik at kode some merges til main blir verifisert av Github Actions ved å kjøre workflow actions og passerer 
+ 
+[insert bilde av settings side med branches valgt og sånt]
+
 
 
 ##Del 3 - Docker
