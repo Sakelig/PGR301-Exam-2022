@@ -62,7 +62,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
             cartSum.remove(cart.getId());
         }
 
-        // add cart to cartSum
+        // add cart and item total value to cartSum
         cart.getItems().forEach(item -> {
             if (cartSum.containsKey(cart.getId())) {
                 cartSum.put(cart.getId(), cartSum.get(cart.getId()) + item.getUnitPrice());
@@ -87,7 +87,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
-        // Verdi av antall carts
+        // value of total carts
         Gauge.builder("carts", cartSum,
                 b -> b.values().size()).register(meterRegistry);
 
