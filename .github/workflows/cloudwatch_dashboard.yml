@@ -6,6 +6,11 @@ on:
       - main
   pull_request:
 
+defaults:
+  run:
+    shell: bash
+    working-directory: ./infra
+
 jobs:
   terraform:
     name: Terraform
