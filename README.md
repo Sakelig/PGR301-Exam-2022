@@ -138,3 +138,17 @@ repositoriet du lagde.
 
 ## Del 5 - Terraform og CloudWatch Dashboards
 
+### Oppgave 1
+Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer?
+- Det er fordi den ikke finner state filen og prøver da og lage en ny en i 
+  en s3 bucket, men det navnet på S3 bucketen den prøver å lage finnes allerede.
+
+Gjør nødvendige Endre slik denne slik at Terraform kan kjøres flere ganger uten å forsøke å opprette ressurser hver gang den kjører
+- asdf
+- asdf
+
+Fjern kommentarene fra databacket.tf slik at Terraform-koden også lager en S3 bucket.
+- asdf
+- asdf
+
+
