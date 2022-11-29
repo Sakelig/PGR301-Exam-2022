@@ -29,7 +29,11 @@ jobs:
         id: plan
         if: github.event_name == 'pull_request'
         run: terraform plan  -var="candidate_id=$CANDIDATE_ID" -var="candidate_email=CANDIDATE_EMAIL" -no-color
-        continue-on-error: false
+        continue-on-error: true
+        
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
 
       - name: Terraform Apply
         if: github.event_name == 'push'
