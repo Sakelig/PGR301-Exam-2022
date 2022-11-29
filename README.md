@@ -144,11 +144,18 @@ Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Ter
   en s3 bucket, men det navnet på S3 bucketen den prøver å lage finnes allerede.
 
 Gjør nødvendige Endre slik denne slik at Terraform kan kjøres flere ganger uten å forsøke å opprette ressurser hver gang den kjører
-- asdf
-- asdf
-
-Fjern kommentarene fra databacket.tf slik at Terraform-koden også lager en S3 bucket.
-- asdf
-- asdf
+- Jeg la til dette i provider.tf
+```
+  backend "s3" {
+    bucket = "analytics-1048"
+    key    = "1048/terraform.state"
+    region = "eu-west-1"
+  }
+```
+    Slik at den skulle bruke resource bucker som hadde samme navn og så kjørte jeg denne commandoen
+```
+terraform import 'aws_s3_bucket.analyticsbucket' 'analytics-1048'
+```
+en gang så funket det hvergang etter det.
 
 
