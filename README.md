@@ -17,7 +17,7 @@ Teamet overleverer kode til en annen avdeling som har ansvar for drift - hva er 
 - asdfa
 - asdfas
 
-
+ 
 
 ## Del 2 - CI
 
