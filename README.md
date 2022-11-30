@@ -152,10 +152,12 @@ Gjør nødvendige Endre slik denne slik at Terraform kan kjøres flere ganger ut
     region = "eu-west-1"
   }
 ```
-    Slik at den skulle bruke resource bucker som hadde samme navn og så kjørte jeg denne commandoen
+
+Slik at den skulle bruke resource bucker som hadde samme navn og så kjørte jeg denne commandoen:
+
 ```
 terraform import 'aws_s3_bucket.analyticsbucket' 'analytics-1048'
 ```
-en gang så funket det hvergang etter det.
+en gang så funket det hvergang etter det da den da oppdaterte terraform filen til å skjønne at det var samme bucket så den ikke trengte å lage en ny hvis den allerede fantes
 
 
