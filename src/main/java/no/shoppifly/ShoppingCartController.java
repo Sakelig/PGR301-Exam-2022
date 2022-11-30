@@ -15,6 +15,7 @@ import java.util.Map;
 @RestController()
 public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
 
+
     private Map<String, Float> cartSum = new HashMap();
 
     @Autowired
