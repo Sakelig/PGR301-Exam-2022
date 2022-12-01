@@ -99,5 +99,8 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
                                 .mapToDouble(Float::doubleValue)
                                 .sum())
                 .register(meterRegistry);
+                
+        System.out.println("Application context listener was called now!");
+        System.out.println("cartSum: " + cartSum.toString());
     }
 }
