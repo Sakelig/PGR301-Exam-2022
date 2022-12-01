@@ -89,12 +89,12 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         // value of total carts
-        Gauge.builder("carts", cartSum,
+        Gauge.builder("cartscount", cartSum,
                 b -> b.values().size()).register(meterRegistry);
 
         // Denne meter-typen "Gauge" rapporterer hvor mye penger som totalt
         // finnes i cartsene xp
-        Gauge.builder("cartvalue", cartSum,
+        Gauge.builder("cartsvalue", cartSum,
                         b -> b.values().stream()
                                 .mapToDouble(Float::doubleValue)
                                 .sum())
