@@ -53,7 +53,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "checkouts.value"
+            "checkouts.count"
           ]
         ],
         "period": 300,
@@ -78,7 +78,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "period": 300,
         "stat": "Average",
         "region": "eu-west-1",
-        "title": "Total number checkouts"
+        "title": "Average checkout responsetime"
       }
     }
   ]
