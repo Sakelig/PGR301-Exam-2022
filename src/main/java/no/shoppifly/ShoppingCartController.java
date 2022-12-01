@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController()
 public class ShoppingCartController implements ApplicationListener<ApplicationReadyEvent> {
@@ -58,7 +59,13 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @PostMapping(path = "/cart")
     public Cart updateCart(@RequestBody Cart cart) {
 
-        // remove cart from cartSum if it exists
+        // remove cart from cartSum if it exists and is not new
+        System.out.println(cart.getId());
+        if (cart.getId() == null){
+            cart.setId(UUID.randomUUID().toString());
+            System.out.println("cart id given");
+        }
+
         if (cartSum.containsKey(cart.getId())) {
             cartSum.remove(cart.getId());
         }
@@ -72,6 +79,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
             }
         });
 
+        System.out.println(cartSum.size());
         return cartService.update(cart);
     }
 
@@ -99,7 +107,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
                                 .mapToDouble(Float::doubleValue)
                                 .sum())
                 .register(meterRegistry);
-                
+
         System.out.println("Application context listener was called now!");
         System.out.println("cartSum: " + cartSum.toString());
     }
