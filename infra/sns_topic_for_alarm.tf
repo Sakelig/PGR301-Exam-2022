@@ -6,7 +6,7 @@ resource "aws_cloudwatch_metric_alarm" "zerosum" {
   comparison_operator       = "GreaterThanThreshold"
   threshold                 = "5"
   evaluation_periods        = "2"
-  period                    = "150"
+  period                    = "180"
 
   statistic                 = "Maximum"
 
