@@ -40,7 +40,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
      *
      * @return an order ID
      */
-    @Timed(value = "checkout_response-time")
+    @Timed
     @PostMapping(path = "/cart/checkout")
     public String checkout(@RequestBody Cart cart) {
         meterRegistry.counter("checkouts").increment();
@@ -94,7 +94,7 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         // value of total carts
-        Gauge.builder("cartscount", cartSum,
+        Gauge.builder("carts", cartSum,
                 b -> b.values().size()).register(meterRegistry);
 
         // Denne meter-typen "Gauge" rapporterer hvor mye penger som totalt
