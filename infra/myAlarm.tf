@@ -1,13 +1,13 @@
 
 resource "aws_cloudwatch_metric_alarm" "zerosum" {
-  alarm_name                = "carts-over-5"
+  alarm_name                = "carts-over-5-"+var.candidate_id
   namespace                 = var.candidate_id
   metric_name               = "carts.value"
 
   comparison_operator       = "GreaterThanThreshold"
   threshold                 = "5"
   evaluation_periods        = "2"
-  period                    = "320"
+  period                    = "300"
 
   statistic                 = "Maximum"
 
