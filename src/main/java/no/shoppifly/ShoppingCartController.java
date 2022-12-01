@@ -60,10 +60,8 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
     public Cart updateCart(@RequestBody Cart cart) {
 
         // remove cart from cartSum if it exists and is not new
-        System.out.println(cart.getId());
         if (cart.getId() == null){
             cart.setId(UUID.randomUUID().toString());
-            System.out.println("cart id given");
         }
 
         if (cartSum.containsKey(cart.getId())) {
@@ -79,7 +77,6 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
             }
         });
 
-        System.out.println(cartSum.size());
         return cartService.update(cart);
     }
 
@@ -108,7 +105,5 @@ public class ShoppingCartController implements ApplicationListener<ApplicationRe
                                 .sum())
                 .register(meterRegistry);
 
-        System.out.println("Application context listener was called now!");
-        System.out.println("cartSum: " + cartSum.toString());
     }
 }
