@@ -1,5 +1,9 @@
 # PGR301 Eksamen stkl002
 
+[![Ci pipeline](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/ci.yml)
+[![Docker build](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/docker.yml/badge.svg)](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/docker.yml)
+[![Terraform CloudWatch](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/cloudwatch_dashboard.yml/badge.svg)](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/cloudwatch_dashboard.yml)
+
 ## Del 1 - DevOps-prinsipper
 Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
 - asdf
@@ -123,8 +127,8 @@ til Private og skriv inn navn på repository. Tilslutt scroll ned og trykk
 
 Github Repository secrets:
 En kalt "AWS_ACCESS_KEY_ID" og en anne kalt "AWS_SECRET_ACCESS_KEY". 
-Disse kan man finne i sitt aws miljø ved å trykke Øverst til høyre der brukernavnet 
-står > "Security Credentials" > under "Access keys for CLI, SDK, & API 
+Disse cookie verdiene kan man finne i sitt aws miljø ved å trykke Øverst til 
+høyre der brukernavnet står > "Security Credentials" > under "Access keys for CLI, SDK, & API 
 access" trykk "Create access key" 
 Link til samme sted: [Trykk her hvis du er allerede pålogget :)](https://us-east-1.console.aws.amazon.com/iam/home?region=eu-west-1#/security_credentials)
 
@@ -135,6 +139,26 @@ repositoriet du lagde.
 
 ## Del 4 - Metrics, overvåkning og alarmer
 
+### Oppgave 1
+Den skal bare trenge 
+```
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-cloudwatch2</artifactId>
+</dependency>
+
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-core</artifactId>
+</dependency>
+```
+i `pom.xml` i det minste for å kunne sende noe data til CloudWatch, samt `MetricsConfig` som forteller hvor og hvem
+den skal sende dataen til og `TimedConfig` for å kunne bruke @Timed
+annotation til å rapportere tid en method har brukt.
+
+### Oppgave 2
+Se `ShoppingCartController` filen for endringer gjort slik at datan blir 
+rapportert til Cloudwatch
 
 ## Del 5 - Terraform og CloudWatch Dashboards
 
@@ -162,3 +186,11 @@ Så funket det hvergang etter det da den da oppdaterte terraform filen til å sk
 
 ### Oppgave 2
 Se `cloudwatch_dashboard.yml` filen for siste version. Den skal nå kjøre apply når det blir pushet mot main branch og plan når det lages en pull request.
+
+
+### Oppgave 3
+Se `dashboard.tf` filen for hvordan alle de 4 metricsene blir laget. 
+NB! Kan være vanskelig å se antall handlevogner siden det er per time så du burde endre periode til noe kortere hvis du faktisk vil se uten å måtte vente lenge. 
+
+### Alarmer
+Se `sns_topic_for_alarm.tf` filen for hvordan alt med alarmen er satt og selve alarmen selv.
