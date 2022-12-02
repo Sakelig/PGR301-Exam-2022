@@ -36,7 +36,7 @@ on:
 ```
 
 
-### OBS! Oppgave 2 ** TESTING NEEDED IN THE END **
+### Oppgave 2
 CI workflowen kjører nå på hver eneste push, uavhengig av branch **TEST THIS WITH DUMMY USER**
 etter å ha fått "Build with Maven" jobben til å kjøre med dette:
 ```
@@ -45,7 +45,8 @@ etter å ha fått "Build with Maven" jobben til å kjøre med dette:
 ```
 Så istedenfor å bare compilere, vil den nå kjøre testene før den blir pakke.
 
-### OBS! Oppgave 3 ** LEGG TIL TERRAFORM OG TA BILDE NÅR DET ER GJORT **
+
+### Oppgave 3
 Sensor må gå inn i settings i repoet:
 ![DEL2_OPPGAVE3_BILDE2](https://user-images.githubusercontent.com/71970061/205299668-47e230d4-6f5c-4df2-81c2-7f36168ce1b2.PNG)
 
@@ -71,7 +72,7 @@ Slik at kode some merges til main blir verifisert av Github Actions ved å kjør
 
 ## Del 3 - Docker
 
-### OBS! Oppgave 1
+### Oppgave 1
 For å få workflowen til å fungere med DockerHub kontoen min må jeg legge til 
 secrets i repoet i Github, da workflown spesifikt ser etter en sercet som 
 heter "DOCKER_HUB_USERNAME" og "DOCKER_HUB_TOKEN".
@@ -79,6 +80,7 @@ Den failer og får "Error: Username and password required" da den ikke
 har en username og passord å skrive inn.
 
 ![DEL3_OPPGAVE1_BILDE](https://user-images.githubusercontent.com/71970061/205299087-e3a59a7a-9ae0-4413-9a7f-73d2ec4ec3cb.PNG)
+
 
 ### Oppgave 2
 Satt på en Builder på Dockerfilen med 
@@ -138,6 +140,8 @@ Den siste secreten som må bli lagt til for å gjøre ting litt lettere er
 repositoriet du lagde.
 (Da skal du få slippe å endre på docker.yml filen)
 
+
+
 ## Del 4 - Metrics, overvåkning og alarmer
 
 ### Oppgave 1
@@ -157,9 +161,12 @@ i `pom.xml` i det minste for å kunne sende noe data til CloudWatch, samt
 `MetricsConfig` som forteller hvor og hvem den skal sende dataen til og `TimedConfig` for å kunne bruke @Timed
 annotation til å rapportere tid en method har brukt.
 
+
 ### Oppgave 2
 Se `ShoppingCartController` filen for endringer gjort slik at datan blir 
 rapportert til Cloudwatch
+
+
 
 ## Del 5 - Terraform og CloudWatch Dashboards
 
