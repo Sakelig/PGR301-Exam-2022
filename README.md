@@ -6,8 +6,10 @@
 
 ## Del 1 - DevOps-prinsipper
 Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
-- asdf
-- asdf
+- Et av utfordringene nå er at det er altfor få releaser altså lav *deployment frequency*. Innføring av DevOps vil kunne øke releaser fra 4 ganger i året til flere titals daglig da veien fra kode til produksjon blir kortere som vil minske *lead time for changes*. Dette vil være en god ting for utviklerne da man kan enklere jobbe med mindre oppgaver og release hyppiger. Det vil også være en god ting for buisness da man kan endre koden raskere gjør at vi kan lære ting raskere og få *feedback* kjappere.
+Et av hoved prinsippene i DevOps som blir brutt er da flyt, som igjen fører til andre underprinsipper blir brutt.
+- En annen utfording er at deployment ofte feiler som er høy *Change failure rate* eller fører til ustabilitet som da fører til at de rollbacker til forrgie version som forsinker ny funksjonalitet gir dem en lav *Mean time to recovery*. DevOps vil minske sjansene for at koden feiler eller er ustabil før den blir pushed til produksjons koden, og vil være med på å fjerne *waste* som da har oppstått pga av det. Et annet hovedprinsipp som blir brutt her er da feedback, da det tar for lang tid før en får tilbake melding på at noe ikke stemmer og det skjer altfor sent i prossesen.
+
 
 En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
 - asdf
