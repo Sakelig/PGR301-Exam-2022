@@ -5,23 +5,24 @@
 [![Terraform CloudWatch](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/cloudwatch_dashboard.yml/badge.svg)](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/cloudwatch_dashboard.yml)
 
 ## Del 1 - DevOps-prinsipper
-Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
+### Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse disse? Hvilke DevOps prinsipper blir brutt?
 - Et av utfordringene nå er at det er altfor få releaser altså lav *deployment frequency*. Innføring av DevOps vil kunne øke releaser fra 4 ganger i året til flere titals daglig da veien fra kode til produksjon blir kortere som vil minske *lead time for changes*. Dette vil være en god ting for utviklerne da man kan enklere jobbe med mindre oppgaver og release hyppiger. Det vil også være en god ting for buisness da man kan endre koden raskere gjør at vi kan lære ting raskere og få *feedback* kjappere.
 Et av hoved prinsippene i DevOps som blir brutt er da flyt, som igjen fører til andre underprinsipper blir brutt.
 - En annen utfording er at deployment ofte feiler som er høy *Change failure rate* eller fører til ustabilitet som da fører til at de rollbacker til forrgie version som forsinker ny funksjonalitet gir dem en lav *Mean time to recovery*. DevOps vil minske sjansene for at koden feiler eller er ustabil før den blir pushed til produksjons koden, og vil være med på å fjerne *waste* som da har oppstått pga av det. Et annet hovedprinsipp som blir brutt her er da feedback, da det tar for lang tid før en får tilbake melding på at noe ikke stemmer og det skjer altfor sent i prossesen.
+- En utfording til er at det ikke er samme team som håndtere drift- og utvikling, det blir da skapt en form for flaske hals mellom teamene da de alltid er avhengig av hverandre. Devops vil fjerne denne falske halsen da den er med på å skape *waste* i begge teamene.
 
 
-En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
-- asdf
-- asdf
+### En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
+- Problemet er at dette skaper lav *deployment frequency*. En bedre tilnærming vil være å lage en bedre utviklingsflyt der man får *feedback* tidlig i utviklingen med automatiske tester der koden blir testet før den kommer i produksjon. Dette kan bli gjort med f.eks. branch protection der workflows må kjøres og godkjenne koden før den f.eks. skal merges :)
 
-Teamet overleverer kode til en annen avdeling som har ansvar for drift - hva er utfordringen med dette ut ifra et DevOps perspektiv, og hvilke gevinster kan man få ved at team han ansvar for både drift- og utvikling?
-- asdfa
-- asdf
 
-Å release kode ofte kan også by på utfordringer. Beskriv hvilke- og hvordan vi kan bruke DevOps prinsipper til å redusere eller fjerne risiko ved hyppige leveraner.
-- asdfa
-- asdfas
+### Teamet overleverer kode til en annen avdeling som har ansvar for drift - hva er utfordringen med dette ut ifra et DevOps perspektiv, og hvilke gevinster kan man få ved at team han ansvar for både drift- og utvikling?
+- Utfordinger dette skaper er at begge teamene er alltid avhengig av det andre og dette skaper *waste*. Når et team må vente på at et annet skal levere kode som skal til prod så er det lang vei tilbake igjen hvis noe er galt med den. Dette vil også være med på å gi dem en lavere *Mean time to recovery* da veien til prod for utviklenre er lengre, og det vil da ta lengre tid å fikse det. Gevinstene man kan få ved at et team har ansvar for både drift- og utvikling er mindre *waste* altså bortkaste prosseser som tar tid og høyere *mean time to recovery* da veien til prod å fikse noe vil være kortere.
+
+
+### Å release kode ofte kan også by på utfordringer. Beskriv hvilke- og hvordan vi kan bruke DevOps prinsipper til å redusere eller fjerne risiko ved hyppige leveraner.
+- For å redusere risiko på leveranse kan vi sette inn *metrics* for å måle hvor feil kan oppstå før den faktisk gjør det, dette vil redusere *Change failure rate*-en som er en good ting.
+- Sette opp CI/CD vil også være gunstig da man kan lettere få kode til prod oftere og man kan på den måten gjøre mindre av gangen. Det vil da være enklere å finne ut av hvilken del av den ny funksjonaliteten failer eller mangler da man vil fort få tilbake melding på det uten å ha skrevet ferdig alt av kode for å så vite at man ikke kan gjøre noe på en uttenkt måte pga en feil tidlig.
 
  
 
