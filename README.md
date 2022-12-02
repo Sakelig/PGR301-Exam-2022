@@ -1,4 +1,4 @@
-# PGR301 Eksamen stkl002
+# PGR301 Eksamen 1048
 
 [![Ci pipeline](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/ci.yml)
 [![Docker build](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/docker.yml/badge.svg)](https://github.com/Sakelig/PGR301-Exam-2022/actions/workflows/docker.yml)
