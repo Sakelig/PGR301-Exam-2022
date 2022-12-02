@@ -47,7 +47,8 @@ Så istedenfor å bare compilere, vil den nå kjøre testene før den blir pakke
 
 ### OBS! Oppgave 3 ** LEGG TIL TERRAFORM OG TA BILDE NÅR DET ER GJORT **
 Sensor må gå inn i settings i repoet:
-[insert bilde av første side man kommer til]
+![DEL2_OPPGAVE3_BILDE2](https://user-images.githubusercontent.com/71970061/205299668-47e230d4-6f5c-4df2-81c2-7f36168ce1b2.PNG)
+
 Her må man trykke på "Add rule" for å legge til en regel i branchen slik at 
 en f.eks. ikke kan pushe direkte til main.
 
@@ -63,8 +64,8 @@ Slik at kode kan Merges til main ved å lage en Pull request med minst en godkje
 - [x] Require status check to pass before merging
 
 Slik at kode some merges til main blir verifisert av Github Actions ved å kjøre workflow actions valgt og sjekke om disse passere 
- 
-[insert bilde av settings side med branches valgt og sånt]
+
+![DEL2_OPPGAVE3_BILDE](https://user-images.githubusercontent.com/71970061/205299230-b7453b6a-ae99-4770-9661-4789355a7181.PNG)
 
 
 
@@ -77,7 +78,7 @@ heter "DOCKER_HUB_USERNAME" og "DOCKER_HUB_TOKEN".
 Den failer og får "Error: Username and password required" da den ikke 
 har en username og passord å skrive inn.
 
-[insert bilde av Settings > secrets > actions side]
+![DEL3_OPPGAVE1_BILDE](https://user-images.githubusercontent.com/71970061/205299087-e3a59a7a-9ae0-4413-9a7f-73d2ec4ec3cb.PNG)
 
 ### Oppgave 2
 Satt på en Builder på Dockerfilen med 
@@ -152,8 +153,8 @@ Den skal bare trenge
     <artifactId>micrometer-core</artifactId>
 </dependency>
 ```
-i `pom.xml` i det minste for å kunne sende noe data til CloudWatch, samt `MetricsConfig` som forteller hvor og hvem
-den skal sende dataen til og `TimedConfig` for å kunne bruke @Timed
+i `pom.xml` i det minste for å kunne sende noe data til CloudWatch, samt 
+`MetricsConfig` som forteller hvor og hvem den skal sende dataen til og `TimedConfig` for å kunne bruke @Timed
 annotation til å rapportere tid en method har brukt.
 
 ### Oppgave 2
