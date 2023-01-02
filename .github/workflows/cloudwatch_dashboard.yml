@@ -30,6 +30,8 @@ jobs:
         id: init
         run: terraform init
 
+      - name: Action echo
+        run:  echo $github.event_name
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
